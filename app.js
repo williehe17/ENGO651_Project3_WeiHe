@@ -1,7 +1,15 @@
 // --- Leaflet map setup ---
 const calgary = [51.0447, -114.0719];
-const map = L.map("map").setView(calgary, 11);
+const map = L.map("map", { maxZoom: 19 }).setView(calgary, 11);
 
+// Spiderfier for overlapping markers
+const oms = new OverlappingMarkerSpiderfier(map);
+
+// Marker cluster group (GLOBAL)
+const markers = L.markerClusterGroup();
+map.addLayer(markers);
+
+// Base map
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
   attribution: "&copy; OpenStreetMap contributors"
@@ -43,22 +51,19 @@ searchBtn.addEventListener("click", async () => {
       return;
     }
 
-    if (permitLayer) {
-      map.removeLayer(permitLayer);
-    }
-
-    const markers = L.markerClusterGroup();
+    // Clear old markers
+    markers.clearLayers();
 
     permitLayer = L.geoJSON(data, {
 
       pointToLayer: function(feature, latlng) {
-        return L.circleMarker(latlng, {
-          radius: 6,
-          fillColor: "red",
-          color: "#000",
-          weight: 1,
-          fillOpacity: 0.8
-        });
+
+        const marker = L.marker(latlng, { spiderfyOnMaxZoom: true });
+
+        // Register with spiderfier
+        oms.addMarker(marker);
+
+        return marker;
       },
 
       onEachFeature: function (feature, layer) {
@@ -72,9 +77,11 @@ searchBtn.addEventListener("click", async () => {
         `);
 
       }
+
     });
+
+    // Add to cluster group
     markers.addLayer(permitLayer);
-    map.addLayer(markers);
 
     map.fitBounds(permitLayer.getBounds());
 
@@ -92,9 +99,7 @@ clearBtn.addEventListener("click", () => {
   dateRangeEl.value = "";
   statusEl.textContent = "";
 
-  if (permitLayer) {
-    map.removeLayer(permitLayer);
-  }
+  markers.clearLayers();
 
 });
 
