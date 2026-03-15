@@ -128,3 +128,57 @@ https://data.calgary.ca/resource/c2es-76ed.geojson
 Wei He  
 Geomatics Engineering MEng  
 University of Calgary
+
+# Lab 4 – Mapbox Traffic Incidents Integration
+
+Lab 4 extends the Lab 3 web map by integrating traffic incident data using Mapbox Studio.
+
+## Traffic Dataset
+Traffic incident data was uploaded to Mapbox Studio as a tileset containing point locations of incidents across Calgary.
+
+## Mapbox Style
+A custom Mapbox style was created to display incidents as circle markers.
+
+Example styling:
+
+- Circle radius: 6  
+- Circle color: red  
+- Stroke color: white  
+
+The style was then published so it can be accessed by the web application.
+
+## Mapbox Configuration
+
+The Mapbox access token and style URL are stored in `config.js`.
+
+Example configuration:
+
+```javascript
+window.MAPBOX_CONFIG = {
+  ACCESS_TOKEN: "your_mapbox_access_token",
+  STYLE_URL: "mapbox://styles/username/style_id"
+};
+```
+
+## Traffic Layer Toggle
+
+A button was added to allow users to toggle the traffic incident layer on and off.
+
+## Rendering Fix
+
+To ensure the Mapbox layer displays correctly above the Leaflet basemap:
+
+```javascript
+pane: "overlayPane"
+```
+
+## Final Result
+
+The final web application now includes:
+
+- Building permit visualization (Lab 3)
+- Traffic incident visualization (Lab 4)
+- Toggle control for the traffic layer
+- Interactive Leaflet web map
+
+This demonstrates integration of open data APIs and Mapbox-hosted geospatial datasets within a web mapping application.
