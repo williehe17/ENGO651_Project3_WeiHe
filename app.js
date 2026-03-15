@@ -17,6 +17,32 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 
 let permitLayer;
 
+// --- Mapbox Traffic Layer (Lab 4) ---
+mapboxgl.accessToken = window.MAPBOX_CONFIG.ACCESS_TOKEN;
+
+const trafficLayer = L.mapboxGL({
+  style: window.MAPBOX_CONFIG.STYLE_URL,
+  accessToken: window.MAPBOX_CONFIG.ACCESS_TOKEN
+});
+
+let trafficVisible = false;
+
+const toggleTrafficBtn = document.getElementById("toggleTrafficBtn");
+
+toggleTrafficBtn.addEventListener("click", () => {
+
+  if (!trafficVisible) {
+    map.addLayer(trafficLayer);
+    toggleTrafficBtn.textContent = "Hide Traffic Layer";
+    trafficVisible = true;
+  } else {
+    map.removeLayer(trafficLayer);
+    toggleTrafficBtn.textContent = "Show Traffic Layer";
+    trafficVisible = false;
+  }
+
+});
+
 // --- Date range picker ---
 flatpickr("#dateRange", {
   mode: "range",
