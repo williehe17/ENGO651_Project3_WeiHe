@@ -21,8 +21,9 @@ let permitLayer;
 mapboxgl.accessToken = window.MAPBOX_CONFIG.ACCESS_TOKEN;
 
 const trafficLayer = L.mapboxGL({
-  style: window.MAPBOX_CONFIG.STYLE_URL,
-  accessToken: window.MAPBOX_CONFIG.ACCESS_TOKEN
+    style: window.MAPBOX_CONFIG.STYLE_URL,
+    accessToken: window.MAPBOX_CONFIG.ACCESS_TOKEN,
+    pane: "overlayPane"
 });
 
 let trafficVisible = false;
@@ -30,9 +31,10 @@ let trafficVisible = false;
 const toggleTrafficBtn = document.getElementById("toggleTrafficBtn");
 
 toggleTrafficBtn.addEventListener("click", () => {
-
   if (!trafficVisible) {
-    map.addLayer(trafficLayer);
+    console.log("adding traffic layer");
+    trafficLayer.addTo(map);
+    console.log(trafficLayer);
     toggleTrafficBtn.textContent = "Hide Traffic Layer";
     trafficVisible = true;
   } else {
@@ -40,7 +42,6 @@ toggleTrafficBtn.addEventListener("click", () => {
     toggleTrafficBtn.textContent = "Show Traffic Layer";
     trafficVisible = false;
   }
-
 });
 
 // --- Date range picker ---
