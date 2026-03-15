@@ -6,6 +6,6 @@ window.OPEN_CALGARY = {
 };
 
 window.MAPBOX_CONFIG = {
-  ACCESS_TOKEN: "pk.eyJ1Ijoid2lsbGllMTciLCJhIjoi...",
-  STYLE_URL: "mapbox://styles/willie17/cmmr4990i006o01sk355e277a"
+  ACCESS_TOKEN: "pk.eyJ1Ijoid2lsbGllMTciLCJhIjoiY21tcjN1eTljMHpmdzJxb2dmc2pzYWE1OCJ9.0_2EqqEjwhtG0M2txdfJ6g",
+  STYLE_URL: "mapbox://styles/willie17/cmmr6jv9d000401raa491ff0d"
 };
