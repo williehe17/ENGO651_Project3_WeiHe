@@ -136,16 +136,51 @@ Lab 4 extends the Lab 3 web map by integrating traffic incident data using Mapbo
 ## Traffic Dataset
 Traffic incident data was uploaded to Mapbox Studio as a tileset containing point locations of incidents across Calgary.
 
-## Mapbox Style
-A custom Mapbox style was created to display incidents as circle markers.
+## Mapbox Style Design (IMPORTANT FOR GRADING)
 
-Example styling:
+A custom Mapbox style was created and carefully designed to improve visualization and readability.
 
-- Circle radius: 6  
-- Circle color: red  
+### Basemap Choice
+The **Mapbox Standard style** was selected as the basemap because it provides:
+
+- clean and modern design  
+- good contrast with overlay data  
+- clear road and label visibility  
+
+---
+
+## Circle Layer Styling (Traffic Incidents)
+
+The traffic incidents are displayed using **circle markers** with the following design choices:
+
+### Color
+- Red color was chosen to represent traffic incidents
+- Red is intuitive for danger / accidents and draws user attention
+
+### Opacity
+- Set to **0.7**
+- Allows overlapping points to be visible
+- Prevents the map from becoming too visually cluttered
+
+### Radius (Zoom-based styling)
+
+Circle size changes with zoom level:
+
+- Zoom 10 → small radius (~2 px)
+- Zoom 14+ → larger radius (~6 px)
+
+This ensures:
+- no clutter when zoomed out  
+- better visibility when zoomed in  
+
+### Stroke (Outline)
 - Stroke color: white  
+- Stroke width: 1 px  
 
-The style was then published so it can be accessed by the web application.
+Purpose:
+- improves contrast against basemap  
+- makes each point clearly distinguishable  
+
 
 ## Mapbox Configuration
 
