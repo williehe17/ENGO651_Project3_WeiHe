@@ -136,7 +136,7 @@ Lab 4 extends the Lab 3 web map by integrating traffic incident data using Mapbo
 ## Traffic Dataset
 Traffic incident data was uploaded to Mapbox Studio as a tileset containing point locations of incidents across Calgary.
 
-## Mapbox Style Design (IMPORTANT FOR GRADING)
+## Mapbox Style Design 
 
 A custom Mapbox style was created and carefully designed to improve visualization and readability.
 
@@ -173,14 +173,13 @@ This ensures:
 - no clutter when zoomed out  
 - better visibility when zoomed in  
 
-### Stroke (Outline)
+### Stroke 
 - Stroke color: white  
 - Stroke width: 1 px  
 
 Purpose:
 - improves contrast against basemap  
 - makes each point clearly distinguishable  
-
 
 ## Mapbox Configuration
 
