@@ -7,5 +7,5 @@ window.OPEN_CALGARY = {
 
 window.MAPBOX_CONFIG = {
   ACCESS_TOKEN: "pk.eyJ1Ijoid2lsbGllMTciLCJhIjoiY21tcjN1eTljMHpmdzJxb2dmc2pzYWE1OCJ9.0_2EqqEjwhtG0M2txdfJ6g",
-  STYLE_URL: "mapbox://styles/willie17/cmmr6jv9d000401raa491ff0d"
+  STYLE_URL: "mapbox://styles/willie17/cmmwr8jmx000w01r93akuf1pe"
 };
